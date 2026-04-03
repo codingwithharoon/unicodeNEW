@@ -1,0 +1,306 @@
+/* ==========================================================================
+   Unicode ↔ Bijoy Converter — ubc-style.css
+   ========================================================================== */
+
+/* ── CSS custom properties ── */
+#ubc-wrap {
+    --ubc-primary:      #191970;
+    --ubc-primary-dark: #82C8E5;
+    --ubc-success:      #0f9d58;
+    --ubc-danger:       #d93025;
+    --ubc-warning:      #f4a400;
+    --ubc-bg:           #f8f9fa;
+    --ubc-surface:      #ffffff;
+    --ubc-border:       #dadce0;
+    --ubc-text:         #202124;
+    --ubc-muted:        #5f6368;
+    --ubc-radius:       8px;
+    --ubc-shadow:       0 1px 4px rgba(0,0,0,.12);
+    --ubc-font:         -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ── Wrapper ── */
+#ubc-wrap {
+    font-family:    var(--ubc-font);
+    color:          var(--ubc-text);
+    background:     var(--ubc-bg);
+    border:         1px solid var(--ubc-border);
+    border-radius:  var(--ubc-radius);
+    padding:        24px;
+    max-width:      1100px;
+    margin:         0 auto 32px;
+    box-sizing:     border-box;
+}
+
+.ubc-tool {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.ubc-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ubc-panel--input {
+    flex: 1;
+}
+
+.ubc-panel--controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-self: center;
+    min-width: 130px;
+}
+
+.ubc-panel--output {
+    flex: 1;
+}
+
+.ubc-panel-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #191970;
+    margin-bottom: 4px;
+}
+
+.ubc-counter {
+    font-size: 0.75rem;
+    color: #5f6368;
+    margin-top: 4px;
+}
+
+.ubc-input-wrap {
+    position: relative;
+}
+
+/* ── Textarea ── */
+.ubc-textarea {
+    width:        100%;
+    min-height:   240px;
+    padding:      14px;
+    border:       1px solid var(--ubc-border);
+    border-radius: var(--ubc-radius);
+    outline:      none;
+    resize:       vertical;
+    font-size:    1rem;
+    line-height:  1.6;
+    color:        var(--ubc-text);
+    background:   var(--ubc-surface);
+    box-sizing:   border-box;
+    display:      block;
+    font-family:  inherit;
+    transition:   border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.ubc-textarea:hover,
+.ubc-textarea:focus {
+    border-color: #82C8E5;
+    box-shadow: 0 0 0 2px rgba(130, 200, 229, 0.28);
+}
+
+#ubc-wrap.ubc-linked-focus #ubc-input,
+#ubc-wrap.ubc-linked-focus #ubc-output {
+    border-color: #82C8E5;
+    box-shadow: 0 0 0 2px rgba(130, 200, 229, 0.28);
+}
+
+#ubc-input {
+    padding-right: 52px;
+}
+
+.ubc-mic-wrap {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.ubc-mic-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.ubc-mic-label--on {
+    color: #d93025;
+}
+
+.ubc-mic-btn {
+    position: static;
+    top: auto;
+    right: auto;
+    width: 34px;
+    height: 34px;
+    border: 0 !important;
+    border-radius: 999px;
+    background: #e8eaed !important;
+    color: #202124 !important;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.ubc-mic-btn:hover {
+    background: #d2d4d8 !important;
+}
+
+.ubc-mic-btn:focus,
+.ubc-mic-btn:focus-visible,
+.ubc-mic-btn:active {
+    background: #d2d4d8 !important;
+    color: #202124 !important;
+    outline: none;
+}
+
+.ubc-mic-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: #202124 !important;
+}
+
+#ubc-output[readonly] {
+    cursor: default;
+}
+
+.ubc-textarea--unicode {
+    font-family: "Noto Sans Bengali", "SolaimanLipi", "Kalpurush", inherit;
+}
+
+.ubc-textarea--bijoy {
+    font-family: "SutonnyMJ", "Kalpurush", monospace;
+    background:  #fafafa;
+}
+
+.ubc-textarea::placeholder {
+    color:     #b0b0b0;
+    font-style: italic;
+    font-size: 0.88rem;
+}
+
+
+
+/* ── Buttons ── */
+.ubc-btn {
+    display:        inline-flex;
+    align-items:    center;
+    justify-content: center;
+    gap:            4px;
+    padding:        7px 13px;
+    border:         none;
+    border-radius:  6px;
+    font-size:      0.82rem;
+    font-weight:    500;
+    cursor:         pointer;
+    white-space:    nowrap;
+    transition:     background 0.15s, transform 0.1s, box-shadow 0.15s;
+    font-family:    var(--ubc-font);
+    line-height:    1.3;
+}
+
+.ubc-btn:active {
+    transform: scale(0.97);
+}
+
+/* Primary */
+.ubc-btn--primary {
+    background: #191970;
+    color:      #fff;
+}
+.ubc-btn--primary:hover {
+    background: #82C8E5;
+    color:      #000;
+    box-shadow: 0 2px 6px rgba(130, 200, 229, 0.35);
+}
+
+/* Secondary */
+.ubc-btn--secondary {
+    background: #e0e0e0;
+    color:      #202124;
+}
+.ubc-btn--secondary:hover {
+    background: #d5d5d5;
+    color:      #111;
+}
+
+#ubc-clear-btn {
+    background: #ff4d4d;
+    color: #fff;
+}
+
+#ubc-clear-btn:hover {
+    background: #e64040;
+    color: #fff;
+}
+
+.ubc-status {
+    font-size:   0.85rem;
+    min-height:  1.3em;
+    color:       var(--ubc-muted);
+    text-align:   center;
+}
+
+.ubc-status--listening { color: var(--ubc-danger); }
+.ubc-status--done { color: var(--ubc-success); }
+.ubc-status--error { color: var(--ubc-danger); }
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .ubc-tool {
+        grid-template-columns: 1fr;
+    }
+
+    .ubc-panel--controls {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+    #ubc-wrap {
+        padding: 14px 12px;
+    }
+
+    .ubc-panel--controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+        align-self: stretch;
+    }
+
+    .ubc-btn {
+        width: 100%;
+        min-height: 42px;
+        font-size: 0.9rem;
+    }
+
+    .ubc-textarea {
+        min-height: 180px;
+        font-size:  0.95rem;
+    }
+}

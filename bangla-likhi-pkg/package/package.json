@@ -1,0 +1,36 @@
+{
+  "name": "bangla-likhi",
+  "version": "1.0.1",
+  "description": "This is a bangla unicode-bijoy-unicode converter and bangla typing easy to using bijoy 52 supporting on this banglalikhi.com project.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "keywords": [
+    "Unicode2Bijoy",
+    "Bijoy2Unicode",
+    "Bangla",
+    "Language"
+  ],
+  "homepage": "https://banglalikhi.com",
+  "bugs": {
+    "url": "https://github.com/sopnolikhiorg/banglalikhi/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sopnolikhiorg/banglalikhi.git"
+  },
+  "license": "MIT",
+  "author": "MH TOUFIK <hello@toufikhasan.com>",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "lib/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
